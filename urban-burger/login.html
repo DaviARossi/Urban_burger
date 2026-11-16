@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urban Burger: hambúrgueres, acompanhamentos e combos. Explore o cardápio e prepare seu pedido.">
+    <meta name="color-scheme" content="light dark">
+    <title>
+      Entrar | Urban Burger
+    </title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer>
+    </script>
+  </head>
+  <body data-page="login">
+    <a class="skip-link" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+<header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Urban Burger — início">
+          <img src="img/logo.png" alt="Logo Urban Burger" width="76" height="76">
+          <span>
+            Urban Burger
+            <small>
+              Delivery de hambúrgueres
+            </small>
+          </span>
+        </a>
+        <button onclick="alternarMenu()" class="mobile-toggle" type="button" aria-label="Abrir menu" aria-controls="navegacao" aria-expanded="false">
+          Menu
+        </button>
+        <div class="header-actions">
+          <a class="login-link" href="login.html">
+            Entrar
+          </a>
+          <a class="signup-link" href="cadastro.html">
+            Cadastrar
+          </a>
+          <a class="cart-link" href="carrinho.html" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M3 3h2l3 12h11l2-8H6"/>
+              <circle cx="9" cy="20" r="1"/>
+              <circle cx="18" cy="20" r="1"/>
+            </svg>
+            Carrinho (
+            <span class="cart-count">
+              0
+            </span>
+            )
+          </a>
+          <button onclick="trocarTema()" class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+            Modo escuro
+          </button>
+        </div>
+      </div>
+      <nav id="navegacao" aria-label="Navegação principal">
+        <div class="container nav-links">
+          <a href="index.html">
+            Início
+          </a>
+          <a href="produtos.html">
+            Cardápio
+          </a>
+          <a href="pedidos.html">
+            Meus pedidos
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main id="conteudo" class="container auth-main">
+      <section class="form-panel">
+        <h1>
+          Entrar
+        </h1>
+        <p>
+          Acesso à sua conta Urban Burger.
+        </p>
+        <form id="form-login" onsubmit="return enviarFormulario(this)" oninput="limparValidacao(this)">
+          <div class="field">
+            <label for="login-email">
+              E-mail
+            </label>
+            <input id="login-email" name="login-email" type="email" required maxlength="100" autocomplete="email" placeholder="voce@exemplo.com"  aria-describedby="login-email-erro">
+            <span class="field-error" id="login-email-erro">
+            </span>
+          </div>
+          <div class="field">
+            <label for="login-senha">
+              Senha
+            </label>
+            <input id="login-senha" name="login-senha" type="password" required minlength="6" maxlength="64" autocomplete="current-password" placeholder="Sua senha"  aria-describedby="login-senha-erro">
+            <span class="field-error" id="login-senha-erro">
+            </span>
+          </div>
+          <button class="button full" type="submit">
+            Entrar
+          </button>
+          <div class="form-feedback" role="status" tabindex="-1" hidden>
+          </div>
+        </form>
+        <p class="form-switch">
+          Ainda não tem conta?
+          <a href="cadastro.html">
+            Crie sua conta
+          </a>
+        </p>
+        <p class="info-note">
+          Acesso à conta indisponível. Você pode preparar seu pedido no carrinho sem entrar.
+        </p>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>
+            Urban Burger
+          </h2>
+          <p>
+            Delivery de hambúrgueres artesanais.
+          </p>
+          <p>
+            Terça a domingo, das 18h às 23h.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Contato
+          </h2>
+          <p>
+            Telefone ainda não disponível
+          </p>
+          <p>
+            Canal de contato em preparação
+          </p>
+          <p>
+            Endereço de atendimento em atualização
+          </p>
+        </div>
+        <div>
+          <h2>
+            Redes sociais
+          </h2>
+          <button type="button" class="text-button" data-mensagem="O canal do Instagram ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Instagram
+          </button>
+          <button type="button" class="text-button" data-mensagem="O canal do Facebook ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Facebook
+          </button>
+        </div>
+      </div>
+      <p class="container footer-bottom">
+        © 2026 Urban Burger
+      </p>
+    </footer>
+    <div class="toast" role="status" aria-live="polite">
+      <span id="mensagem">
+      </span>
+      <button type="button" onclick="fecharMensagem()">
+        Fechar
+      </button>
+    </div>
+  </body>
+</html>

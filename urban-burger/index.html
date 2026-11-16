@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urban Burger: hambúrgueres, acompanhamentos e combos. Explore o cardápio e prepare seu pedido.">
+    <meta name="color-scheme" content="light dark">
+    <title>
+      Início | Urban Burger
+    </title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer>
+    </script>
+  </head>
+  <body data-page="index">
+    <a class="skip-link" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+<header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Urban Burger — início">
+          <img src="img/logo.png" alt="Logo Urban Burger" width="76" height="76">
+          <span>
+            Urban Burger
+            <small>
+              Delivery de hambúrgueres
+            </small>
+          </span>
+        </a>
+        <button onclick="alternarMenu()" class="mobile-toggle" type="button" aria-label="Abrir menu" aria-controls="navegacao" aria-expanded="false">
+          Menu
+        </button>
+        <div class="header-actions">
+          <a class="login-link" href="login.html">
+            Entrar
+          </a>
+          <a class="signup-link" href="cadastro.html">
+            Cadastrar
+          </a>
+          <a class="cart-link" href="carrinho.html" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M3 3h2l3 12h11l2-8H6"/>
+              <circle cx="9" cy="20" r="1"/>
+              <circle cx="18" cy="20" r="1"/>
+            </svg>
+            Carrinho (
+            <span class="cart-count">
+              0
+            </span>
+            )
+          </a>
+          <button onclick="trocarTema()" class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+            Modo escuro
+          </button>
+        </div>
+      </div>
+      <nav id="navegacao" aria-label="Navegação principal">
+        <div class="container nav-links">
+          <a href="index.html" aria-current="page">
+            Início
+          </a>
+          <a href="produtos.html">
+            Cardápio
+          </a>
+          <a href="pedidos.html">
+            Meus pedidos
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main id="conteudo" class="container">
+<section class="home-intro" aria-labelledby="hero-titulo">
+        <div>
+          <h1 id="hero-titulo">
+            Bem-vindo à Urban Burger
+          </h1>
+          <p>
+            Hambúrgueres artesanais, porções e bebidas. Confira o cardápio e escolha os produtos do seu pedido.
+          </p>
+          <a class="button" href="produtos.html">
+            Ver cardápio
+          </a>
+        </div>
+        <img src="img/burger-classic.jpg" alt="Hambúrguer com queijo, molho e salada" width="600" height="400">
+      </section>
+<section class="section" aria-labelledby="destaques-titulo">
+        <div class="section-heading">
+          <h2 id="destaques-titulo">
+            Hambúrgueres em destaque
+          </h2>
+          <a class="inline-link" href="produtos.html">
+            Ver todos os produtos
+          </a>
+        </div>
+        <div class="product-grid" data-products="featured" >
+          <article class="product-card" id="produto-1" data-nome="Urban Classic" data-categoria="hamburgueres">
+            <div class="product-image">
+              <img src="img/burger-classic.jpg" alt="Imagem ilustrativa de Urban Classic" width="600" height="450" loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">
+                Hambúrgueres
+              </p>
+              <h3>
+                Urban Classic
+              </h3>
+              <p class="product-description">
+                Pão brioche, burger de 160 g, cheddar, alface, tomate e molho da casa.
+              </p>
+              <div class="product-bottom">
+                <span class="product-price">
+                  R$ 28,90
+                </span>
+                <button class="add-button" type="button" onclick="alterarQuantidade(1, 1)">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" id="produto-2" data-nome="Urban Bacon" data-categoria="hamburgueres">
+            <div class="product-image">
+              <img src="img/burger-bacon.jpg" alt="Imagem ilustrativa de Urban Bacon" width="600" height="450" loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">
+                Hambúrgueres
+              </p>
+              <h3>
+                Urban Bacon
+              </h3>
+              <p class="product-description">
+                Burger de 160 g, cheddar cremoso, bacon crocante e maionese da casa.
+              </p>
+              <div class="product-bottom">
+                <span class="product-price">
+                  R$ 33,90
+                </span>
+                <button class="add-button" type="button" onclick="alterarQuantidade(2, 1)">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" id="produto-3" data-nome="Urban Duplo" data-categoria="hamburgueres">
+            <div class="product-image">
+              <img src="img/burger-duplo.jpg" alt="Imagem ilustrativa de Urban Duplo" width="600" height="450" loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">
+                Hambúrgueres
+              </p>
+              <h3>
+                Urban Duplo
+              </h3>
+              <p class="product-description">
+                Dois burgers de 120 g, queijo em dobro, picles e molho especial.
+              </p>
+              <div class="product-bottom">
+                <span class="product-price">
+                  R$ 38,90
+                </span>
+                <button class="add-button" type="button" onclick="alterarQuantidade(3, 1)">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" id="produto-4" data-nome="Urban Veggie" data-categoria="hamburgueres">
+            <div class="product-image">
+              <img src="img/burger-veggie.jpg" alt="Imagem ilustrativa de Urban Veggie" width="600" height="450" loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">
+                Hambúrgueres
+              </p>
+              <h3>
+                Urban Veggie
+              </h3>
+              <p class="product-description">
+                Burger de grão-de-bico, queijo, folhas frescas, tomate e molho de ervas.
+              </p>
+              <div class="product-bottom">
+                <span class="product-price">
+                  R$ 30,90
+                </span>
+                <button class="add-button" type="button" onclick="alterarQuantidade(4, 1)">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="about-section" id="sobre" aria-labelledby="sobre-titulo">
+        <h2 id="sobre-titulo">
+          Sobre nós
+        </h2>
+        <p>
+          Hambúrgueres, acompanhamentos e combos para diferentes momentos do seu dia. Conheça o cardápio da Urban Burger e escolha seus favoritos.
+        </p>
+        <p>
+          Escolha os produtos, confira as quantidades e prepare seu pedido pelo carrinho.
+        </p>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>
+            Urban Burger
+          </h2>
+          <p>
+            Delivery de hambúrgueres artesanais.
+          </p>
+          <p>
+            Terça a domingo, das 18h às 23h.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Contato
+          </h2>
+          <p>
+            Telefone ainda não disponível
+          </p>
+          <p>
+            Canal de contato em preparação
+          </p>
+          <p>
+            Endereço de atendimento em atualização
+          </p>
+        </div>
+        <div>
+          <h2>
+            Redes sociais
+          </h2>
+          <button type="button" class="text-button" data-mensagem="O canal do Instagram ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Instagram
+          </button>
+          <button type="button" class="text-button" data-mensagem="O canal do Facebook ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Facebook
+          </button>
+        </div>
+      </div>
+      <p class="container footer-bottom">
+        © 2026 Urban Burger
+      </p>
+    </footer>
+    <div class="toast" role="status" aria-live="polite">
+      <span id="mensagem">
+      </span>
+      <button type="button" onclick="fecharMensagem()">
+        Fechar
+      </button>
+    </div>
+  </body>
+</html>

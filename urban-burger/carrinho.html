@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urban Burger: hambúrgueres, acompanhamentos e combos. Explore o cardápio e prepare seu pedido.">
+    <meta name="color-scheme" content="light dark">
+    <title>
+      Meu carrinho | Urban Burger
+    </title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer>
+    </script>
+  </head>
+  <body data-page="carrinho">
+    <a class="skip-link" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+<header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Urban Burger — início">
+          <img src="img/logo.png" alt="Logo Urban Burger" width="76" height="76">
+          <span>
+            Urban Burger
+            <small>
+              Delivery de hambúrgueres
+            </small>
+          </span>
+        </a>
+        <button onclick="alternarMenu()" class="mobile-toggle" type="button" aria-label="Abrir menu" aria-controls="navegacao" aria-expanded="false">
+          Menu
+        </button>
+        <div class="header-actions">
+          <a class="login-link" href="login.html">
+            Entrar
+          </a>
+          <a class="signup-link" href="cadastro.html">
+            Cadastrar
+          </a>
+          <a class="cart-link" href="carrinho.html" aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M3 3h2l3 12h11l2-8H6"/>
+              <circle cx="9" cy="20" r="1"/>
+              <circle cx="18" cy="20" r="1"/>
+            </svg>
+            Carrinho (
+            <span class="cart-count">
+              0
+            </span>
+            )
+          </a>
+          <button onclick="trocarTema()" class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false">
+            Modo escuro
+          </button>
+        </div>
+      </div>
+      <nav id="navegacao" aria-label="Navegação principal">
+        <div class="container nav-links">
+          <a href="index.html">
+            Início
+          </a>
+          <a href="produtos.html">
+            Cardápio
+          </a>
+          <a href="pedidos.html">
+            Meus pedidos
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main id="conteudo" class="container page-main">
+      <div class="page-heading">
+        <h1>
+          Meu carrinho
+        </h1>
+        <p>
+          Ajuste as quantidades e confira o resumo antes de finalizar.
+        </p>
+      </div>
+      <div id="checkout-feedback" class="notice success" role="status" tabindex="-1" hidden>
+      </div>
+      <div id="cart-content">
+        <div class="empty-state" id="carrinho-vazio">
+          <h2>
+            Seu carrinho está vazio.
+          </h2>
+          <a href="produtos.html">
+            Ver cardápio
+          </a>
+        </div>
+        <div class="cart-layout" id="carrinho-preenchido" hidden>
+          <div class="cart-items">
+            <article class="cart-item" id="item-1" hidden>
+              <img src="img/burger-classic.jpg" alt="Urban Classic" width="85" height="85">
+              <div>
+                <h2>
+                  Urban Classic
+                </h2>
+                <p>
+                  R$ 28,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-1" type="button" onclick="alterarQuantidade(1, -1)" aria-label="Diminuir quantidade de Urban Classic">
+                      −
+                    </button>
+                    <span id="quantidade-1">
+                      0
+                    </span>
+                    <button id="mais-1" type="button" onclick="alterarQuantidade(1, 1)" aria-label="Aumentar quantidade de Urban Classic">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(1)" aria-label="Remover Urban Classic">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-1">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-2" hidden>
+              <img src="img/burger-bacon.jpg" alt="Urban Bacon" width="85" height="85">
+              <div>
+                <h2>
+                  Urban Bacon
+                </h2>
+                <p>
+                  R$ 33,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-2" type="button" onclick="alterarQuantidade(2, -1)" aria-label="Diminuir quantidade de Urban Bacon">
+                      −
+                    </button>
+                    <span id="quantidade-2">
+                      0
+                    </span>
+                    <button id="mais-2" type="button" onclick="alterarQuantidade(2, 1)" aria-label="Aumentar quantidade de Urban Bacon">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(2)" aria-label="Remover Urban Bacon">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-2">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-3" hidden>
+              <img src="img/burger-duplo.jpg" alt="Urban Duplo" width="85" height="85">
+              <div>
+                <h2>
+                  Urban Duplo
+                </h2>
+                <p>
+                  R$ 38,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-3" type="button" onclick="alterarQuantidade(3, -1)" aria-label="Diminuir quantidade de Urban Duplo">
+                      −
+                    </button>
+                    <span id="quantidade-3">
+                      0
+                    </span>
+                    <button id="mais-3" type="button" onclick="alterarQuantidade(3, 1)" aria-label="Aumentar quantidade de Urban Duplo">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(3)" aria-label="Remover Urban Duplo">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-3">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-4" hidden>
+              <img src="img/burger-veggie.jpg" alt="Urban Veggie" width="85" height="85">
+              <div>
+                <h2>
+                  Urban Veggie
+                </h2>
+                <p>
+                  R$ 30,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-4" type="button" onclick="alterarQuantidade(4, -1)" aria-label="Diminuir quantidade de Urban Veggie">
+                      −
+                    </button>
+                    <span id="quantidade-4">
+                      0
+                    </span>
+                    <button id="mais-4" type="button" onclick="alterarQuantidade(4, 1)" aria-label="Aumentar quantidade de Urban Veggie">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(4)" aria-label="Remover Urban Veggie">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-4">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-5" hidden>
+              <img src="img/batatas.jpg" alt="Batata da Casa" width="85" height="85">
+              <div>
+                <h2>
+                  Batata da Casa
+                </h2>
+                <p>
+                  R$ 14,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-5" type="button" onclick="alterarQuantidade(5, -1)" aria-label="Diminuir quantidade de Batata da Casa">
+                      −
+                    </button>
+                    <span id="quantidade-5">
+                      0
+                    </span>
+                    <button id="mais-5" type="button" onclick="alterarQuantidade(5, 1)" aria-label="Aumentar quantidade de Batata da Casa">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(5)" aria-label="Remover Batata da Casa">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-5">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-6" hidden>
+              <img src="img/onion-rings.jpg" alt="Onion Rings" width="85" height="85">
+              <div>
+                <h2>
+                  Onion Rings
+                </h2>
+                <p>
+                  R$ 18,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-6" type="button" onclick="alterarQuantidade(6, -1)" aria-label="Diminuir quantidade de Onion Rings">
+                      −
+                    </button>
+                    <span id="quantidade-6">
+                      0
+                    </span>
+                    <button id="mais-6" type="button" onclick="alterarQuantidade(6, 1)" aria-label="Aumentar quantidade de Onion Rings">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(6)" aria-label="Remover Onion Rings">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-6">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-7" hidden>
+              <img src="img/refrigerante.jpg" alt="Refrigerante Lata" width="85" height="85">
+              <div>
+                <h2>
+                  Refrigerante Lata
+                </h2>
+                <p>
+                  R$ 6,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-7" type="button" onclick="alterarQuantidade(7, -1)" aria-label="Diminuir quantidade de Refrigerante Lata">
+                      −
+                    </button>
+                    <span id="quantidade-7">
+                      0
+                    </span>
+                    <button id="mais-7" type="button" onclick="alterarQuantidade(7, 1)" aria-label="Aumentar quantidade de Refrigerante Lata">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(7)" aria-label="Remover Refrigerante Lata">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-7">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-8" hidden>
+              <img src="img/suco.jpg" alt="Suco de Laranja" width="85" height="85">
+              <div>
+                <h2>
+                  Suco de Laranja
+                </h2>
+                <p>
+                  R$ 9,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-8" type="button" onclick="alterarQuantidade(8, -1)" aria-label="Diminuir quantidade de Suco de Laranja">
+                      −
+                    </button>
+                    <span id="quantidade-8">
+                      0
+                    </span>
+                    <button id="mais-8" type="button" onclick="alterarQuantidade(8, 1)" aria-label="Aumentar quantidade de Suco de Laranja">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(8)" aria-label="Remover Suco de Laranja">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-8">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-9" hidden>
+              <img src="img/combo.jpg" alt="Combo Urban" width="85" height="85">
+              <div>
+                <h2>
+                  Combo Urban
+                </h2>
+                <p>
+                  R$ 39,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-9" type="button" onclick="alterarQuantidade(9, -1)" aria-label="Diminuir quantidade de Combo Urban">
+                      −
+                    </button>
+                    <span id="quantidade-9">
+                      0
+                    </span>
+                    <button id="mais-9" type="button" onclick="alterarQuantidade(9, 1)" aria-label="Aumentar quantidade de Combo Urban">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(9)" aria-label="Remover Combo Urban">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-9">
+              </strong>
+            </article>
+            <article class="cart-item" id="item-10" hidden>
+              <img src="img/combo.jpg" alt="Combo em Dobro" width="85" height="85">
+              <div>
+                <h2>
+                  Combo em Dobro
+                </h2>
+                <p>
+                  R$ 74,90 por unidade
+                </p>
+                <div class="cart-item-actions">
+                  <div class="quantity-control">
+                    <button id="menos-10" type="button" onclick="alterarQuantidade(10, -1)" aria-label="Diminuir quantidade de Combo em Dobro">
+                      −
+                    </button>
+                    <span id="quantidade-10">
+                      0
+                    </span>
+                    <button id="mais-10" type="button" onclick="alterarQuantidade(10, 1)" aria-label="Aumentar quantidade de Combo em Dobro">
+                      +
+                    </button>
+                  </div>
+                  <button type="button" class="remove-item" onclick="removerProduto(10)" aria-label="Remover Combo em Dobro">
+                    Remover
+                  </button>
+                </div>
+              </div>
+              <strong id="subtotal-10">
+              </strong>
+            </article>
+          </div>
+          <aside class="cart-summary">
+            <h2>
+              Resumo do pedido
+            </h2>
+            <div class="summary-line">
+              <span>
+                Subtotal
+              </span>
+              <strong id="subtotal-pedido">
+              </strong>
+            </div>
+            <div class="summary-line">
+              <span>
+                Entrega
+              </span>
+              <span>
+                Não calculada
+              </span>
+            </div>
+            <div class="summary-line total">
+              <span>
+                Total dos produtos
+              </span>
+              <strong id="total-pedido">
+              </strong>
+            </div>
+            <form id="dados-pedido" oninput="invalidarArquivo()" onsubmit="finalizarPedido(); return false;">
+              <h2>
+                Dados para entrega
+              </h2>
+              <p>
+                Não é necessário criar uma conta para preparar o pedido.
+              </p>
+              <p class="small-note">
+                Os dados de entrega serão incluídos no arquivo do pedido. Confira as informações antes de baixar.
+              </p>
+              <div class="field">
+                <label for="pedido-nome">
+                  Nome completo
+                </label>
+                <input id="pedido-nome" autocomplete="name" type="text" required maxlength="80" minlength="3">
+              </div>
+              <div class="field">
+                <label for="pedido-email">
+                  E-mail
+                </label>
+                <input id="pedido-email" autocomplete="email" type="email" required maxlength="100" >
+              </div>
+              <div class="field">
+                <label for="pedido-cpf">
+                  CPF
+                </label>
+                <input id="pedido-cpf" type="text" required maxlength="14" minlength="14" inputmode="numeric" data-mask="cpf" oninput="mascara(this)">
+              </div>
+              <div class="field">
+                <label for="pedido-telefone">
+                  Celular com DDD
+                </label>
+                <input id="pedido-telefone" autocomplete="tel" type="tel" required maxlength="15" minlength="15" data-mask="telefone" oninput="mascara(this)">
+              </div>
+              <div class="field">
+                <label for="pedido-endereco">
+                  Endereço de entrega
+                </label>
+                <input id="pedido-endereco" autocomplete="street-address" type="text" required maxlength="200" minlength="8">
+              </div>
+              <button class="button full" type="submit">
+                Realizar pedido
+              </button>
+            </form>
+            <a id="baixar-pedido" class="inline-link" hidden>
+              Realizar novamente o último pedido
+            </a>
+            <p class="small-note">
+              Fique atento ao momento da entrega.
+            </p>
+          </aside>
+        </div>
+      </div>
+      <p class="small-note">
+        Obrigado por escolher a Urban Burger.
+      </p>
+    </main>
+<footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>
+            Urban Burger
+          </h2>
+          <p>
+            Delivery de hambúrgueres artesanais.
+          </p>
+          <p>
+            Terça a domingo, das 18h às 23h.
+          </p>
+        </div>
+        <div>
+          <h2>
+            Contato
+          </h2>
+          <p>
+            Telefone ainda não disponível
+          </p>
+          <p>
+            Canal de contato em preparação
+          </p>
+          <p>
+            Endereço de atendimento em atualização
+          </p>
+        </div>
+        <div>
+          <h2>
+            Redes sociais
+          </h2>
+          <button type="button" class="text-button" data-mensagem="O canal do Instagram ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Instagram
+          </button>
+          <button type="button" class="text-button" data-mensagem="O canal do Facebook ainda não está disponível." onclick="mostrarMensagem(this.dataset.mensagem)">
+            Facebook
+          </button>
+        </div>
+      </div>
+      <p class="container footer-bottom">
+        © 2026 Urban Burger
+      </p>
+    </footer>
+    <div class="toast" role="status" aria-live="polite">
+      <span id="mensagem">
+      </span>
+      <button type="button" onclick="fecharMensagem()">
+        Fechar
+      </button>
+    </div>
+  </body>
+</html>
